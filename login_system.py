@@ -6,14 +6,22 @@ def signup(userTableCursor):
     print("[ SIGN UP]")
     user_name = str(input("USERNAME >>"))
     while user_name and user_name.strip():
-        store_username = userTableCursor.execute("SELECT usernames FROM users WHERE usernames=?",(user_name)).fetchall()
+        store_username = userTableCursor.execute("SELECT * FROM users WHERE usernames=?",(user_name,)).fetchall() #Check if username exists on database
         if not store_username :
             password = password = str(input("PASSWORD >>"))
-            userTableCursor.execute("INSERT INTO users values(?,?)",(user_name,password))
-            userTableCursor.commit()
+            if password and password.strip():   # Try not to allow empty passwords into the table
+                userTableCursor.execute("INSERT INTO users values(?,?)",(user_name,password))
+                print("succesfully signed up")
+                break
+            else:
+                print("invalid password,please try again.")
+                password = password = str(input("PASSWORD >>"))
+                userTableCursor.execute("INSERT INTO users values(?,?)",(user_name,password))
+                print("succesfully signed up")
         else:
             print("username taken,please try again.")
-            user_name = str(input("USERNAME >>"))        
+            user_name = str(input("USERNAME >>"))
+    
 
 
 def login(userTableCursor):
@@ -24,10 +32,11 @@ def login(userTableCursor):
             password = str(input("PASSWORD >>"))
             Users = userTableCursor.execute("SELECT * FROM users WHERE usernames=? AND password=?",(user_name,password)).fetchall()
             print(Users)
-            #if Users:
-                #print("login successful!")
-            #else:
-                #print("login unsuccesful,try again.")
+            if Users:
+                print("login successful!")
+                break
+            else:
+                print("login unsuccesful,try again.")
             
         else:
             user_name = str(input("USERNAME >>"))
@@ -48,10 +57,13 @@ def main():
     elif user_input == 1:
         login(database)  
     elif user_input == 2:
-        exit(0)
+        signup(database)
     else:
         print("Invalid command")
         home()
+    users.commit()
+    users.close()
+    
     
 if __name__=="__main__":
     main()    
