@@ -26,7 +26,7 @@ With the *2* command:
 * the user is then prompted for a password, if password is empty the user is given another chance to enter a password
 * if password is empty again, the program then exist.
 
-Libraries used
+Libraries used:
 *SQLite3 - used for connecting the database and executing SQL statement
 *GetPass - used for masking the masking the password as the user enters it.
  
