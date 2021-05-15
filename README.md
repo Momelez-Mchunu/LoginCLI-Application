@@ -27,9 +27,9 @@ With the *2* command:
 * if password is empty again, the program then exist.
 
 Libraries used
-    *SQLite3*
+*SQLite3*
 * used for connecting the database and executing SQL statement
-    *GetPass*
+*GetPass*
 * used for masking the masking the password as the user enters it.
  
 
