@@ -4,7 +4,7 @@ def signup(userTableCursor): #userTableCursor is the Cursor objects for working 
     """add a user to the database after certain checks have been done"""
     print("[ SIGN UP]")
     user_name = str(input("USERNAME >>"))  
-    while user_name and user_name.strip():  #Check if username is not empty, if not empty continue 
+    while user_name and user_name.strip():  #Check if username is not empty, if not empty continue  
         store_username = userTableCursor.execute("SELECT * FROM users WHERE usernames=?",(user_name,)).fetchall() #Check if username exists on database
         if not store_username : # if the store_username list is empty, username has not been taken
             password = str(input("PASSWORD >>"))
