@@ -18,7 +18,7 @@ With the *1* command:
 * The program asks for the username, if username is empty, the program exits.
 * if username is not empty, it asks for the password if username and password exist on database user is logged
 * if password is incorrect, the program prompts the user for the username.
-* if non-existent/incorrect details are entered 3 times the program exits.
+* if non-existent/incorrect details are entered 3 times the program exits. 
 
 With the *2* command:
 * The program asks the user for a username, if username is empty the program exits
