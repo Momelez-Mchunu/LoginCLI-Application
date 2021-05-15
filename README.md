@@ -10,4 +10,3 @@ These commands are executed using a specific number that corresponds to that com
 1 -loging in to the system,provided your username and password are on the database
 
 2- Signing up, if you are new to the system you have to sign up
-
