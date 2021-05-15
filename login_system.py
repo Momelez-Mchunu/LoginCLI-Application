@@ -10,17 +10,18 @@ def signup(userTableCursor):
             password = str(input("PASSWORD >>"))
             if password and password.strip():     # Try not to allow empty passwords into the table
                 userTableCursor.execute("INSERT INTO users values(?,?)",(user_name,password)) #add the user to the database
-                print("succesfully signed up")
+                print("succesfully signed up..")
                 break
             else:
                 print("invalid password,please try again.")
-                password = password = str(input("PASSWORD >>"))
+                password = str(input("PASSWORD >>"))
                 userTableCursor.execute("INSERT INTO users values(?,?)",(user_name,password)) 
-                print("succesfully signed up")
+                print("Succesfully signed up..")
         else:
-            print("username taken,please try again.")
+            print("Username taken,please try again..")
             user_name = str(input("USERNAME >>"))
-    main()
+    print()
+    main() # Takes the user back to the home screen and give them the choice to terminate the program or to login/to try to sign up again if invalid username was entered
     
 
 
