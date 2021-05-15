@@ -1,6 +1,4 @@
 import sqlite3 
-def home():
-    print("[ LOGIN SYSTEM ]\n[ 0 ] Exit\n[ 1 ] LOGIN\n[ 2 ] SIGN UP")
 
 def signup(userTableCursor):
     """add a user to the database after certain checks have been done"""
@@ -48,7 +46,6 @@ def login(userTableCursor):
             if user_name and user_name.strip():
                 password = str(input("PASSWORD >>"))
                 Users = userTableCursor.execute("SELECT * FROM users WHERE usernames=? AND password=?",(user_name,password)).fetchall()
-                print(Users)
                 if Users:
                     print("login successful!")
                     break
@@ -60,9 +57,9 @@ def main():
     users = sqlite3.connect('users.db')
     database = users.cursor()
     
-    home()
+    print("[ LOGIN SYSTEM ]\n[ 0 ] Exit\n[ 1 ] LOGIN\n[ 2 ] SIGN UP")
     user_input =  input("   >>")
-    if user_input == '0':
+    if user_input == '0': # user input taken as string to accomodate users that may enter non-integer data
         print("Goodbye")
         exit(0)
     elif user_input == '1':
