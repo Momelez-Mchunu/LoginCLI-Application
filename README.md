@@ -30,7 +30,7 @@ Libraries used:
 
 SQLite3 - used for connecting the database and executing SQL statement
 
-GetPass - used for masking the masking the password as the user enters it.
+GetPass - used for masking the password as the user enters it.
  
 
 
