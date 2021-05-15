@@ -1,6 +1,8 @@
 # LoginCLI-Application
 LoginCLI-Application is a command line application that allows the user to sign up, login or exit 
 
+The application is implemented using Python and SQLite3
+
 These commands are executed using a specific number that corresponds to that command
 
 0 -exiting the program
