@@ -1,10 +1,10 @@
 import sqlite3 
 
-def signup(userTableCursor):
+def signup(userTableCursor): #userTableCursor is the Cursor objects for working with SQL commands(in this case)
     """add a user to the database after certain checks have been done"""
     print("[ SIGN UP]")
-    user_name = str(input("USERNAME >>"))
-    while user_name and user_name.strip():
+    user_name = str(input("USERNAME >>"))  
+    while user_name and user_name.strip():  #Check if username is not empty, if not empty continue 
         store_username = userTableCursor.execute("SELECT * FROM users WHERE usernames=?",(user_name,)).fetchall() #Check if username exists on database
         if not store_username : # if the store_username list is empty, username has not been taken
             password = str(input("PASSWORD >>"))
@@ -32,7 +32,7 @@ def login(userTableCursor):
     count = 0 
     while user_name and user_name.strip():
         if count == 0: # count being greater than 0 means user has entered incorrect username/password atleast once
-            if user_name and user_name.strip(): #Check if username is not empty, if not empty continue to password
+            if user_name and user_name.strip():
                 password = str(input("PASSWORD >>"))
                 Users = userTableCursor.execute("SELECT * FROM users WHERE usernames=? AND password=?",(user_name,password)).fetchall()
                 if Users:
