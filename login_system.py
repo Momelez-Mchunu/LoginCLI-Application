@@ -1,5 +1,5 @@
 import sqlite3 ,getpass
-
+ 
 def signup(userTableCursor):
     """add a user to the database after certain checks have been done"""
     
