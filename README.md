@@ -25,12 +25,15 @@ With the *2* command:
 * if username already exists, the user is prompted to enter another username
 * the user is then prompted for a password, if password is empty the user is given another chance to enter a password
 * if password is empty again, the program then exist.
+* The passwor is stored in a database as key and salt for encryption and decryption purposes
 
 Libraries used:
 
 SQLite3 - used for connecting the database and executing SQL statement
 
 GetPass - used for masking the password as the user enters it.
+
+hashlib - used for password hashing, instead of having plain text passwords
  
 
 
